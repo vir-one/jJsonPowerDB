@@ -57,14 +57,6 @@ In this project, you can do the following:
 5. Delete a specific student record.
 
 
-## Screenshots
-![Index](https://github.com/sohamsalkar/JSONpowerDB_L2X/blob/main/Screenshots/Indexss.png)
-![Search](https://github.com/sohamsalkar/JSONpowerDB_L2X/blob/main/Screenshots/searchss.png)
-![Update](https://github.com/sohamsalkar/JSONpowerDB_L2X/blob/main/Screenshots/updatess.png)
-![Database](https://github.com/sohamsalkar/JSONpowerDB_L2X/blob/main/Screenshots/DBss.png)
-![Dashboard](https://github.com/sohamsalkar/JSONpowerDB_L2X/blob/main/Screenshots/Dashboardss.png)
-
-
 ## Instructions
 #### Requirements
   * Web Browser
