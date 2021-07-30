@@ -1,0 +1,139 @@
+<html>
+<head>
+ <title>Login2Xplore's JsonPowerDB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+</head>
+<body>
+<form id="frm" method="post">
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+<caption>Registration form</caption>
+<tr>
+<th>Enter your Name</th>
+<td><input type="text" name="name" id="name" maxlength="50" title="enter your name" placeholder="enter your name" required/></td>
+</tr>
+
+<tr>
+<th>Enter your email</th>
+<td><input type="email" id="email"/></td>
+</tr>
+<tr>
+<th>Enter your mobile number</th>
+<td><input type="number" id="number"/></td>
+</tr>
+<tr>
+<tr>
+<th>Department</th>
+<td><select   id="dept" name="dept" >
+<option>Select..</option>
+<option value="CS">Computer Science</option>
+<option value="IT">Information Technology</option>
+<option value="EXTC">Electronics and Communication</option>
+<option value="MECH">Mechanical</option>
+<option value="CVL">Civil</option>
+</select>
+</td>
+</tr>
+<tr>
+<th>Select your gender</th>
+<td>
+male<input type="radio" name="g" value="m" id="gender"/>
+female<input type="radio" name="g" value="f" id="gender"/>
+</td>
+</tr>
+<tr>
+<th>Select your DOB</th>
+<td><input type="date" id="dob"/></td>
+</tr>
+<tr>
+<th>Select your Country</th>
+<td>
+<select name="country" id="count">
+<option value="" selected="selected" disabled="disabled">Select your country</option>
+<option value="1">India</option>
+<option value="2">Pakistan</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" value="Save My Data" onclick="registerCandidate();"/>
+<input type="reset" value="Reset Data"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+<script>
+        function createPUTRequest(connToken, jsonObj, dbName, relName) {
+            var putRequest = "{\n"
+                    + "\"token\" : \""
+                    + connToken
+                    + "\","
+                    + "\"dbName\": \""
+                    + dbName
+                    + "\",\n" + "\"cmd\" : \"PUT\",\n"
+                    + "\"rel\" : \""
+                    + relName + "\","
+                    + "\"jsonStr\": \n"
+                    + jsonObj
+                    + "\n"
+                    + "}";
+            return putRequest;
+        }
+        function executeCommand(reqString, dbBaseUrl, apiEndPointUrl) {
+            var url = dbBaseUrl + apiEndPointUrl;
+            var jsonObj;
+            $.post(url, reqString, function (result) {
+                jsonObj = JSON.parse(result);
+            }).fail(function (result) {
+                var dataJsonObj = result.responseText;
+                jsonObj = JSON.parse(dataJsonObj);
+            });
+            return jsonObj;
+        }
+
+        function validateAndGetFormData() {
+            
+            var name = document.getElementById("name").value;
+            var dob = document.getElementById("dob").value;     
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("add").value;
+            var mobileno = document.getElementById("number").value;
+            var country = document.getElementById("count").value;
+            var gender = document.getElementById("gender").value;
+            
+            var jsonStrObj = {
+                StudentName: name,
+                DOB: dob,
+                Email: email,
+                Address: add,
+                MobileNo: mobileno,
+		Country: country,
+		Gender:gender,
+            };
+            return JSON.stringify(jsonStrObj);
+        }
+        
+
+        function registerCandidate() {
+
+            var jsonStr = validateAndGetFormData();
+            if (jsonStr === "") {
+                return;
+            }
+            var putReqStr = createPUTRequest("90936288|-31948845453343550|90945445",jsonStr, "PROJECT", "STD-DATA");
+            alert(putReqStr);
+            jQuery.ajaxSetup({async: false});
+            var resultObj = executeCommand(putReqStr,
+                    "http://api.login2explore.com:5577", "/api/iml");
+            jQuery.ajaxSetup({async: true});
+            alert( "VALUES INSERTED "+ JSON.stringify(resultObj));
+            document.getElementById("myForm").reset();
+}
+
+        
+    </script>
+
+</html>
