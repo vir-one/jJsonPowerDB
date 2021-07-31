@@ -21,24 +21,6 @@ You can read the documentation by clicking [here.](http://login2explore.com/jpdb
 - It helps developers in faster coding, in-turn reduces development cost.
 ---
 
-### Release History
-#### v0.0.0 (27/02/2021)
-##### Initialization:
-- [#1] Added basic designs of all planned HTML pages
----
-#### v0.1.0 (28/02/2021)
-##### Enhancements:
-- [#2] Designed all HTML pages
-- [#3] Added JS and connected pages to JsonPowerDB
-- [#4] Tested all pages
----
-#### v0.1.1 (01/03/2021)
-##### Enhancements:
-- [#5] Added a README.md file
-- [#6] Few CSS changes
----
-
-
 
 ## Introduction
 In this project, you can do the following:
@@ -48,18 +30,6 @@ In this project, you can do the following:
 4. Upadte mobile number.
 5. Delete a specific student record.
 
-
-## Instructions
-#### Requirements
-  * Web Browser
-  * Database Connection Token
-#### Execution
-* open `index.html` to open the Indec page
-#### Website
-* To go on any page
-  * click on the link
-* To come back on index page
-  * click <- arrow on Browser
 
 ### Scope of functionalities
 * It is a very basic project for demonstration of JsonPowerDb with help of a web application. 
