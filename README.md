@@ -39,14 +39,6 @@ You can read the documentation by clicking [here.](http://login2explore.com/jpdb
 ---
 
 
-### Table of Content
-1. [Introduction](#introduction)
-2. [Screenshots](#screenshots)
-3. [Instructions](#instructions)
-   1. [Requirements](#requirements)
-   2. [Execution](#execution)
-   3. [Website](#website)
-
 
 ## Introduction
 In this project, you can do the following:
